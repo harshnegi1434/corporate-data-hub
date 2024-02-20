@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="/static/css/statistics.css">
+</head>
+<body>
+    <h1>Statistics From Dataset</h1>
+    
+    <div class="home">
+        <a href="/">Home</a>
+    </div>
+
+    <div class="visualization-row">
+        <div class="visualization">
+            <img src="/static/images/salary_range_counts.png" alt="Salary Range Counts">
+            <p>Number of Companies by Salary Range</p>
+        </div>
+
+        <div class="visualization">
+            <img src="/static/images/rating_counts.png" alt="Rating Counts">
+            <p>Distribution of Companies by Rating</p>
+        </div>
+
+        <div class="visualization">
+            <img src="/static/images/wordcloud.png" alt="Word Cloud">
+            <p>Word Cloud of Company Names</p>
+        </div>
+
+        <div class="visualization">
+            <img src="/static/images/summary_sns.png" alt="Summary Statistics of Salaries">
+            <p>Summary Statistics of Salaries</p>
+        </div>
+    </div>
+
+    <div class="visualization-row">
+        <div class="visualization">
+            <img src="/static/images/proportion.png" alt="Proportion of Each Designation Category">
+            <p>Proportion of Each Designation Category</p>
+        </div>
+
+        <div class="visualization">
+            <img src="/static/images/relationship.png" alt="Relationship between Salary and Rating">
+            <p>Relationship between Salary and Rating</p>
+        </div>
+
+        <div class="visualization">
+            <img src="/static/images/correlation_matrix.png" alt="Correlation Matrix">
+            <p>Correlation Matrix</p>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script src="/static/js/statistics.js"></script>
+    
+</body>
+</html>

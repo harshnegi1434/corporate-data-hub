@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.search-options label {
+    margin-right: 20px;
+}
+
+input[type="text"], button {
+    display: block;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#paginationButtons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.prevNextButton {
+    margin: 0 5px;
+    padding: 5px 8px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.prevNextButton:hover {
+    background-color: #0056b3;
+}
+
+.home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.home a:hover {
+    text-decoration: underline;
+}

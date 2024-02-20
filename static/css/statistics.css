@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333; /* Dark gray color */
+}
+
+.visualization-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.visualization {
+    text-align: center;
+    margin: 10px;
+    flex-basis: 23%; /* Adjust the width of each visualization */
+    background-color: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.visualization:hover {
+    transform: translateY(-5px); /* Add a slight lift effect on hover */
+}
+
+.visualization img {
+    width: 100%; /* Ensure the image fills its container */
+    max-width: 300px; /* Set a maximum width for the image */
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.visualization p {
+    margin: 15px 0;
+    color: #555; /* Dark gray color for text */
+}
+
+@media (max-width: 768px) {
+    .visualization {
+        flex-basis: 45%; /* Adjust width for smaller screens */
+    }
+}
+
+/* Existing CSS styles */
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Black with transparency */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.home a:hover {
+    text-decoration: underline;
+}

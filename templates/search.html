@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Companies</title>
+    <link rel="stylesheet" href="/static/css/search.css">
+</head>
+<body>
+    <div class="container">
+        <div class="home">
+            <a href="/">Home</a>
+        </div>
+        <h1>Search Companies</h1>
+        <div class="search-options">
+            <label><input type="radio" name="searchType" value="designation" checked> Search by Designation</label>
+            <label><input type="radio" name="searchType" value="company_name"> Search by Company Name</label>
+        </div>
+        <input type="text" id="searchInput" placeholder="Enter search term...">
+        <button id="searchButton">Search</button>
+        <div id="tableContainer"></div>
+        <div id="paginationButtons"></div>
+    </div>
+    
+    <script src="/static/js/search.js"></script>
+</body>
+</html>
