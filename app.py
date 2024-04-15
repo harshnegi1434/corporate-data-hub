@@ -1,16 +1,76 @@
-from flask import request, Flask, jsonify, render_template
-from db_model import db, Company
-from sqlalchemy import text
+# Standard library imports
+import os
 from collections import OrderedDict
 from decimal import Decimal
 
+# Third-party imports
+from flask import (flash, redirect, request, Flask, jsonify, render_template, url_for)
+from flask_login import LoginManager, login_user, logout_user, login_required
+from sqlalchemy import text
+from decouple import config
+
+# Local application imports
+from db_model import db, Company, User
+
 app = Flask(__name__)
+
+SECRET_KEY = config('SECRET_KEY')
+app.config['SECRET_KEY'] = SECRET_KEY
 
 # Configuring the SQLite database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///company_data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.query(User).get(int(user_id))
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        if password != confirm_password:
+            flash('Passwords do not match!')
+            return redirect(url_for('signup'))
+
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            flash('Username already exists!')
+            return redirect(url_for('signup'))
+
+        User.create_user(username, password)
+        flash('Registration successful! Please login.')
+        return redirect(url_for('login'))
+
+    return render_template('signup.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = User.query.filter_by(username=username).first()
+        if user and user.verify_password(password):
+            login_user(user)
+            return redirect(url_for('home'))
+        flash('Invalid username or password')
+    return render_template('login.html')
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 # API Endpoint for querying by designation
 @app.route('/records/designation/<designation>', methods=['GET'])
@@ -151,10 +211,6 @@ def add_or_update_company():
     else:
         return jsonify({'error': 'Company does not exist. Use the add endpoint to add a new company.'}), 404
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/search')
 def search():
     return render_template('search.html')
@@ -170,6 +226,14 @@ def statistics():
 @app.route('/add-update')
 def add_update():
     return render_template('add.html')
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

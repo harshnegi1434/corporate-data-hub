@@ -1,66 +1,128 @@
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: pageFadeOut 2s forwards;
+}
+
 body {
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    color: white;
+    background-image: url('/static/images/home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh; /* Ensure the page takes up the full viewport height */
+    justify-content: center;
+}
+
+.wrapper {
+    text-align: center;
+    position: relative;
+}
+
+header,
+p,
+a,
+.footer,
+.github-link {
+    opacity: 0; /* Initially set opacity to 0 */
+}
+
+header {
+    padding: 20px 0;
+    animation: fadeIn 2s forwards 0.5s; /* Apply fade-in animation with delay */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start from fully transparent */
+    }
+    to {
+        opacity: 1; /* End at fully opaque */
+    }
 }
 
 .container {
     max-width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px; /* Add margin bottom to separate containers */
-}
-
-h1 {
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 30px;
-}
-
-.options {
-    display: grid; /* Change display to grid */
-    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
-    gap: 20px; /* Space between grid items */
-}
-
-.option {
-    padding: 20px;
+    margin: 40px auto 20px auto; /* Added margin to the top and bottom */
+    padding: 0 20px;
     border-radius: 8px;
-    background-color: #007bff;
-    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p,
+a {
+    animation: fadeIn 2s forwards; /* Apply fade-in animation without delay */
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    animation-delay: 1s; /* Delay the paragraph fade-in */
+    font-weight: bold;
+}
+
+a {
+    display: inline-block;
+    margin-right: 15px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    margin-bottom: 20px; /* Add margin-bottom to create space between rows */
+    color: white;
+    border: 1px solid white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+    animation-delay: 1.5s; /* Delay the button fade-in */
 }
 
-.option:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
+a:hover {
+    background-color: white;
+    color: #007BFF;
 }
 
-.option h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.github-link {
+    position: fixed;
+    top: 10px;  
+    right: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    z-index: 10; 
+    animation: fadeIn 2s forwards 2s;
 }
 
-.option p {
-    font-size: 16px;
-}
-
-.option:nth-child(even) {
-    background-color: #6c757d;
-}
-
-@media (max-width: 600px) {
-    .options {
-        grid-template-columns: 1fr; /* Change to a single column on small screens */
-    }
+.footer {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    color: white;
+    font-size: 0.8em;
+    animation: fadeIn 2s forwards 2s;
 }

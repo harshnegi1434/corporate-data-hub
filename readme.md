@@ -20,7 +20,7 @@ This web application provides functionalities to manage company data including a
 2. Navigate to the project directory:
 
     ```bash
-    cd corporate-data-hub
+    cd company-data-management
     ```
 
 3. Install dependencies:

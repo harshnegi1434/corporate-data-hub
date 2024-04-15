@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Data Hub</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Corporate Data Hub</h1>
-        <div class="options">
-            <a href="/search" class="option">
-                <h2>Search Companies</h2>
-                <p>Search records by designation or company name</p>
-            </a>
-            <a href="/highest" class="option">
-                <h2>Get Highest</h2>
-                <p>Get highest salaries/ratings/salaries reported for each designation</p>
-            </a>
+<body id="indexPage">
+    <div class="wrapper">
+        <header>
+            <h1>Corporate Data Hub</h1>
+        </header>
+        <div class="container" id="container">
+            <p>View Indian IT Companies Records</p>
+            <a href="/signup">Signup</a>
+            <a href="/login"  id="loginLink">Login</a>
         </div>
-        <div class="options">
-            <a href="/add-update" class="option">
-                <h2>Add/Update Records</h2>
-                <p>Add or update records in the database</p>
-            </a>
-            <a href="/statistics" class="option">
-                <h2>Show Statistics</h2>
-                <p>Show statistics of the databases</p>
-            </a>
+        <div class="footer">
+            <p>Created by Harsh Negi</p>
         </div>
+        <a href="https://github.com/harshnegi1434/corporate-data-hub" class="github-link" target="_blank">GitHub</a>
     </div>
+    <script src="/static/js/script.js">
+    </script>
 </body>
 </html>
