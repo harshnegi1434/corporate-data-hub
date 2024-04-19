@@ -134,3 +134,27 @@ a {
     color: white;
     opacity: 1;
 }
+
+.error-message {
+    color: red;
+    text-align: center;
+    animation: fadeOut 10s forwards;
+    font-weight: bold;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.success-message {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeOut 10s forwards;
+}
+

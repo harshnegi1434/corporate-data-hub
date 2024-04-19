@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user, login_required, current_user  # Importing LoginManager and other necessary functions
+from flask_login import login_user, logout_user, login_required  # Importing LoginManager and other necessary functions
 from sqlalchemy import text
 from collections import OrderedDict
 from decimal import Decimal
@@ -39,15 +39,21 @@ def signup():
 # Login Route
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    error_message = None
+    
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         user = User.query.filter_by(username=username).first()
+        
         if user and user.verify_password(password):
             login_user(user)
-            return redirect(url_for('routes.home'))
-        flash('Invalid username or password')
-    return render_template('login.html')
+            return redirect(url_for('routes.home'))  # Redirect to home page upon successful login
+        
+        error_message = 'Invalid username or password'
+    
+    return render_template('login.html', error_message=error_message)
+
 
 # Logout Route
 @bp.route('/logout')

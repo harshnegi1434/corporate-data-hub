@@ -9,6 +9,13 @@
     <a href="/"> <h1>Corporate Data Hub</h1> </a>
     <div class="main fade-in">
         <p class="sign" align="center">Login</p>
+        {% if error_message %}
+            <p class="error-message" align="center">{{ error_message }}</p>
+        {% endif %}
+
+        {% if success_message %}
+            <p class="success-message" align="center">{{ success_message }}</p>
+        {% endif %}
         <form method="post">
             <input class="un " type="text" align="center" placeholder="Username" name="username" required>
             <input class="pass" type="password" align="center" placeholder="Password" name="password" required>
@@ -16,6 +23,6 @@
             <p class="forgot" align="center"><a href="/signup">New Member? Signup Here</a></p>
         </form>
     </div>
-    <script src="/static/js/script.js"></script>
+    <script src="/static/js/login.js"></script>
 </body>
 </html>

@@ -64,3 +64,23 @@ h1 {
         grid-template-columns: 1fr; /* Change to a single column on small screens */
     }
 }
+
+/* Existing CSS */
+
+.logout {
+    text-align: center;
+    margin-top: 20px; /* Add margin-top to separate logout from options */
+}
+
+.logout-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red for hover effect */
+}
