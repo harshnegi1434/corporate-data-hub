@@ -196,6 +196,10 @@ def add_or_update_company():
         return jsonify({'error': 'Company does not exist. Use the add endpoint to add a new company.'}), 404
 
 # Home Route
+@bp.route('/')
+def index():
+    return render_template('index.html')
+
 @bp.route('/home')
 @login_required
 def home():
