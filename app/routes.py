@@ -196,26 +196,28 @@ def add_or_update_company():
         return jsonify({'error': 'Company does not exist. Use the add endpoint to add a new company.'}), 404
 
 # Home Route
-@bp.route('/')
-def index():
-    return render_template('index.html')
-
 @bp.route('/home')
+@login_required
 def home():
     return render_template('home.html')
 
 @bp.route('/search')
+@login_required
 def search():
     return render_template('search.html')
 
 @bp.route('/highest')
+@login_required
 def highest():
     return render_template('highest.html')
 
 @bp.route('/statistics')
+@login_required
 def statistics():
     return render_template('statistics.html')
 
 @bp.route('/add-update')
+@login_required
 def add_update():
     return render_template('add.html')
+
