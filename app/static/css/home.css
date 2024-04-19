@@ -1,0 +1,66 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure the page takes up the full viewport height */
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px; /* Add margin bottom to separate containers */
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.options {
+    display: grid; /* Change display to grid */
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 20px; /* Space between grid items */
+}
+
+.option {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px; /* Add margin-bottom to create space between rows */
+}
+
+.option:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.option h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-size: 16px;
+}
+
+.option:nth-child(even) {
+    background-color: #6c757d;
+}
+
+@media (max-width: 600px) {
+    .options {
+        grid-template-columns: 1fr; /* Change to a single column on small screens */
+    }
+}
