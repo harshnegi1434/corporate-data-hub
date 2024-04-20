@@ -100,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function searchByDesignation() {
         const searchTerm = searchInput.value;
-
-        fetch(`/records/designation/${searchTerm}`)
+    
+        fetch(`/companies/designation/${searchTerm}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Didnt found any Designation Name like '${searchTerm}' in the database.`);
@@ -123,11 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 tableContainer.innerHTML = `<p>Error: ${error.message}</p>`;
             });
     }
-
+    
     function searchByCompanyName() {
         const searchTerm = searchInput.value;
-
-        fetch(`/records/company/${searchTerm}`)
+    
+        fetch(`/companies/name/${searchTerm}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Didnt found any Company Name like '${searchTerm}' in the database.`);
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 tableContainer.innerHTML = `<p>Error: ${error.message}</p>`;
             });
     }
-
+    
     searchButton.addEventListener('click', () => {
         const searchType = document.querySelector('input[name="searchType"]:checked').value;
 
