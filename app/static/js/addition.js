@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         if (operation === 'add') {
-            url = '/add-details';
+            url = '/companies'; // Updated endpoint for adding a company
             message = 'Company added successfully';
-            // Use POST for adding
+            
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -28,7 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to add company.');
+                }
+                return response.json();
+            })
             .then(data => {
                 statusMessage.textContent = message;
                 statusMessage.style.color = 'green';
@@ -40,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 statusMessage.style.color = 'red';
             });
         } else if (operation === 'update') {
-            url = '/update';
+            url = '/companies/update'; // Updated endpoint for updating a company
             message = 'Company updated successfully';
-            // Use PUT for updating
+            
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -50,7 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update company.');
+                }
+                return response.json();
+            })
             .then(data => {
                 statusMessage.textContent = message;
                 statusMessage.style.color = 'green';
