@@ -1,28 +1,33 @@
+/* General Styling */
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    background-image: url('/static/images/search.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensure the page takes up the full viewport height */
+    color: #fff; /* Text color set to white */
 }
 
+/* Container Styling */
 .container {
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px; /* Add margin bottom to separate containers */
+    max-width: 900px;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: transparent; /* Transparent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center; /* Center the content */
 }
 
 h1 {
-    color: #333;
-    font-size: 36px;
+    font-size: 2.5rem;
     margin-bottom: 30px;
+    color: #007bff; /* Blue heading */
 }
 
 .options {
@@ -34,7 +39,7 @@ h1 {
 .option {
     padding: 20px;
     border-radius: 8px;
-    background-color: #007bff;
+    background-color: rgba(128, 128, 128, 0.7); /* Transparent gray background */
     color: #fff;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -42,45 +47,33 @@ h1 {
 }
 
 .option:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
+    background-color: rgba(100, 100, 100, 0.7); /* Darker transparent gray on hover */
+    transform: translateY(-5px);
 }
 
 .option h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
 .option p {
-    font-size: 16px;
+    font-size: 1.2rem;
 }
 
-.option:nth-child(even) {
-    background-color: #6c757d;
-}
-
-@media (max-width: 600px) {
-    .options {
-        grid-template-columns: 1fr; /* Change to a single column on small screens */
-    }
-}
-
-/* Existing CSS */
-
+/* Logout Styling */
 .logout {
-    text-align: center;
-    margin-top: 20px; /* Add margin-top to separate logout from options */
+    margin-top: 40px;
 }
 
 .logout-button {
-    padding: 10px 20px;
-    border-radius: 8px;
-    background-color: #dc3545; /* Bootstrap danger color */
+    padding: 12px 24px;
+    border-radius: 10px;
+    background-color: #dc3545; /* Red color */
     color: #fff;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
-    background-color: #c82333; /* Darker red for hover effect */
+    background-color: #c82333;
 }
